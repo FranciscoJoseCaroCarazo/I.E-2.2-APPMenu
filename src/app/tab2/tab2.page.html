@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Carrito
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngFor="let plate of carrito">
+    <ion-card>
+      <img src={{plate.photo}} />
+      <ion-card-header>
+        <ion-card-title>{{plate.name}}</ion-card-title>
+        <ion-card-subtitle>Precio: {{plate.price}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{plate.descripcion}}
+      </ion-card-content>
+      <ion-button expand="block" color="danger" (click)="borrarPlato(plate)">Borrar Plato</ion-button>
+    </ion-card>
+  </div>
+
+  <div class="container">
+    <h2>Numero de Platos: {{listlenght}}</h2>
+    <br>
+    <ion-button expand="block" color="success" disable="true" (click)="pagar()"><ion-icon name="cash-outline"></ion-icon>Pagar</ion-button>
+  </div>
+
+</ion-content>

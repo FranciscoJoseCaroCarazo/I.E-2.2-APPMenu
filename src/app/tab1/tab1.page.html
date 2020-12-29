@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Menú
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <img src="assets/spain-8.jpg" alt="">
+  <br>
+  <div class="container">
+  <h1 class="centro">Bienvenidos al Bar Alfalfa</h1>
+  <h3 class="centro">El mejor bar de Sevilla</h3>
+  </div>
+  <br>
+    <div class="container">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Tipos de Platos
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" (click)="verPrimerosPlatos()">Primeros Platos</a></li>
+          <li><a class="dropdown-item" (click)="verSegundosPlatos()">Segundos Platos</a></li>
+          <li><a class="dropdown-item" (click)="verPostres()">Postres</a></li>
+        </ul>
+    </div>
+    </div>
+
+    <div *ngFor="let item of lista">
+      <ion-card>
+        <img src={{item.photo}} />
+        <ion-card-header>
+          <ion-card-title>{{item.name}}</ion-card-title>
+          <ion-card-subtitle>Precio: {{item.price}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{item.descripcion}}
+        </ion-card-content>
+        <ion-button expand="block" (click)="obtenerPlato(item)">Añadir a la Cesta</ion-button>
+      </ion-card>
+    </div>
+  
+  <div class="container">
+    <ion-button expand="block" color="success" disable="true" (click)="send()">Confirmar</ion-button>
+  </div>
+
+</ion-content>
